@@ -1,6 +1,0 @@
-@Api_Projeto_GestaoAgro_HostAddress = http://localhost:5073
-
-GET {{Api_Projeto_GestaoAgro_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
