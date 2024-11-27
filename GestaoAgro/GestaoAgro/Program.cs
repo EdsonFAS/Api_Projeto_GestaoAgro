@@ -1,4 +1,4 @@
-using APi_aula06.DataContexts;
+using GestaoAgro.DataContexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var conectionString = builder.Configuration.GetConnectionString("default");
-builder.Services.AddDbContext<AppDContexts>(options => options.UseMySql(conectionString, ServerVersion.AutoDetect(conectionString)));
-
+builder.Services.AddDbContext<AppDbContexts>(options => options.UseMySql(conectionString, ServerVersion.AutoDetect(conectionString)));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
