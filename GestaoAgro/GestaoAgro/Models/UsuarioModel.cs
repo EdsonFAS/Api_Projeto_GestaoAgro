@@ -1,31 +1,32 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GestaoAgro.Dtos
+namespace GestaoAgro.Model
 {
-    public class UsuarioDtos
+    [Table("Usuario")]
+    public class UsuarioModel
     {
-        [Required]
+        [Column("Id")]
         public int Id { get; set; }
 
-        [Required]
+        [Column("NomeCompleto")]
         public string? NomeCompleto { get; set; }
 
-        [Required]
+        [Column("NomeUsuario")]
         public string? NomeUsuario { get; set; }
 
-        [Required]
+        [Column("Senha")]
         public string? Senha { get; set; }
 
-        [Required]
+        [Column("Email")]
         public string? Email { get; set; }
 
-        [Required]
+        [Column("CPF")]
         public string? CPF { get; set; }
 
-        [Required]
+        [Column("DataNascimento")]
         public DateTime DataNascimento { get; set; }
 
-        [Required]
+        [Column("Endereco")]
         public string Endereco { get; set; }
     }
 }

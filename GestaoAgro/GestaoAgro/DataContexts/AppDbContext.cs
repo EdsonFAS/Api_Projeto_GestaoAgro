@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.DataContexts
 {
-    public class AppDbContexts : DbContext
+    public class AppDbContext : DbContext
     {
-        public AppDbContexts(DbContextOptions<AppDbContexts> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<UsuarioModel> Usuario { get; set; }
         public DbSet<AnimalModel> Animal { get; set; }

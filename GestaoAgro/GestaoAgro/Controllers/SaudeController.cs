@@ -1,29 +1,25 @@
 ﻿using GestaoAgro.DataContexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using GestaoAgro.Model;
-using GestaoAgro.Dtos;
 
 namespace GestaoAgro.Controllers
 {
     [ApiController]
-    [Route("Usuario")]
-    public class UsuarioController : Controller
+    [Route("Saude")]
+    public class SaudeController : Controller
     {
         private readonly AppDbContext _context;
-
-        public UsuarioController(AppDbContext context)
+        public SaudeController(AppDbContext context)
         {
-            _context = context;
+            this._context = context;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetSaude()
         {
             try
             {
-                var listaUsuario = await _context.Usuario.ToListAsync();
-                return Ok(listaUsuario);
+                var listarSaude = await _context.Saude.ToArrayAsync();
+                return Ok(listarSaude);
             }
 
             catch (Exception ex)
@@ -32,5 +28,4 @@ namespace GestaoAgro.Controllers
             }
         }
     }
-
 }

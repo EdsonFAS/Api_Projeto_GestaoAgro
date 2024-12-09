@@ -5,18 +5,18 @@ namespace GestaoAgro.Dtos
     public class AnimalDtos
     {
         [Required]
-        public int codigo_brinco { get; set; }
+        public int CodigoBrinco { get; set; }
 
         [Required]
-        public string raca { get; set; }
+        public string? Raca { get; set; }
 
         [Required]
-        public double peso { get; set; }
+        public double Peso { get; set; }
 
         [Required]
-        public string sexo { get; set; }
+        public string? Sexo { get; set; }
 
         [Required]
-        public int idade { get; set; }
+        public int Idade { get; set; }
     }
 }

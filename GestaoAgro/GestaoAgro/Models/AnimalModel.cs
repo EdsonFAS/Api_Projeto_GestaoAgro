@@ -1,24 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoAgro.Model
 {
-    [Table("Animal"), PrimaryKey(nameof(CodigoBrinco))]
+    [Table("Animal")]
     public class AnimalModel
     {
-        [Column("codigo_brinco")]
+        [Key] // Indica que esta é a chave primária
+        [Column("CodigoBrinco")]
         public int CodigoBrinco { get; set; }
 
-        [Column("raca")]
-        public required string Raca { get; set; }
+        [Column("Raca")]
+        public string? Raca { get; set; }
 
-        [Column("peso")]
+        [Column("Peso")]
         public double? Peso { get; set; }
 
-        [Column("sexo")]
+        [Column("Sexo")]
         public string? Sexo { get; set; }
 
-        [Column("idade")]
+        [Column("Idade")]
         public int Idade { get; set; }
     }
 }

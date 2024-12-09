@@ -10,8 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var conectionString = builder.Configuration.GetConnectionString("default");
-builder.Services.AddDbContext<AppDbContexts>(options => options.UseMySql(conectionString, ServerVersion.AutoDetect(conectionString)));
+// Busca string de conexão e adiciona a classe AppDbContext Service do EF
+var connetionString = builder.Configuration.GetConnectionString("default");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString))
+    );
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

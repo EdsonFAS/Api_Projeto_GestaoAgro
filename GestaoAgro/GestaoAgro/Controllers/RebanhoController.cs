@@ -5,27 +5,28 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controllers
 {
     [ApiController]
-    [Route("Animal")]
-    public class AnimalController : Controller
+    [Route("Rebanho")]
+    public class RebanhoController : Controller
     {
         private readonly AppDbContext _context;
-        public AnimalController(AppDbContext context) {
+        public RebanhoController(AppDbContext context)
+        {
             this._context = context;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAnimal()
+        public async Task<ActionResult> GetRebanho()
         {
-            try {
-                var listarAnimal = await _context.Animal.ToListAsync();
+            try
+            {
+                var listarRebanho = await _context.Rebanho.ToArrayAsync();
 
-                return Ok(listarAnimal);
+                return Ok(listarRebanho);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return Problem(ex.Message);
             }
         }
-        
     }
 }
