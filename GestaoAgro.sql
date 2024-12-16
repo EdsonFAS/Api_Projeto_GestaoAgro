@@ -25,7 +25,7 @@ CREATE TABLE Animal (
 
 -- Tabela Rebanho
 CREATE TABLE Rebanho (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
+    IdRebanho INT AUTO_INCREMENT PRIMARY KEY,
     fk_Animal_CodigoBrinco INT NOT NULL,
     Tipo VARCHAR(100),
     Destino VARCHAR(255),
@@ -34,7 +34,7 @@ CREATE TABLE Rebanho (
 
 -- Tabela Pastagem
 CREATE TABLE Pastagem (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
+    IdRebanho INT AUTO_INCREMENT PRIMARY KEY,
     AreaPastagem DOUBLE NOT NULL,
     LocalizacaoPastagem VARCHAR(255),
     Periodo INT,
@@ -55,10 +55,10 @@ CREATE TABLE Alimentacao (
 -- Tabela RebanhoAlimentacao
 CREATE TABLE RebanhoAlimentacao (
     Id INT AUTO_INCREMENT PRIMARY KEY,
-    fk_rebanho_id INT NOT NULL,
-    fk_alimentacao_id INT NOT NULL,
-    FOREIGN KEY (fk_rebanho_id) REFERENCES Rebanho(id),
-    FOREIGN KEY (fk_alimentacao_id) REFERENCES Alimentacao(id)
+    fk_rebanho_IdRebanho INT NOT NULL,
+    fk_alimentacao_IdAlimentacao INT NOT NULL,
+    FOREIGN KEY (fk_rebanho_IdRebanho) REFERENCES Rebanho(IdRebanho),
+    FOREIGN KEY (fk_alimentacao_IdAlimentacao) REFERENCES Alimentacao(IdAlimentacao)
 );
 
 -- Tabela Saude
@@ -118,7 +118,7 @@ VALUES
 ('Fornecedor C', 'Ração C', 150.0, '2025-08-01', '2024-12-03');
 
 -- Dados Tabela RebanhoAlimentacao
-INSERT INTO RebanhoAlimentacao (fk_rebanho_id, fk_alimentacao_id)
+INSERT INTO RebanhoAlimentacao (fk_rebanho_IdRebanho, fk_alimentacao_IdAlimentacao)
 VALUES
 (1, 1),
 (2, 2),
