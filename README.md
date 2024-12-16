@@ -6,37 +6,37 @@
 
 # Principais Funcionalidades
 
-1. Gestão de Animais
+# 1. Gestão de Animais
 
 - Cadastro de animais com informações detalhadas (nome, raça, idade, peso, etc.).
 - Consulta de animais por critérios como identificação, espécie ou características específicas.
 
-2. Gestão de Alimentação
+# 2. Gestão de Alimentação
 
 - Registro de planos de alimentação para cada animal ou grupo do rebanho.
 - Consulta e acompanhamento dos históricos de alimentação.
 
-3. Monitoramento de Saúde
+# 3. Monitoramento de Saúde
 
 - Registro de eventos de saúde (vacinas, exames, tratamentos).
 - Acompanhamento de indicadores de bem-estar animal.
 
-4. Registro de Produção
+# 4. Registro de Produção
 
 - Cadastro de informações sobre a produção (leite, carne, ovos, etc.).
 - Relatórios sobre produtividade por animal ou grupo.
 
-5. Controle de Pastagem
+# 5. Controle de Pastagem
 
 - Gerenciamento de lotes de pasto e rodízio de animais.
 - Monitoramento da disponibilidade e qualidade das pastagens.
 
-6. Gestão de Rebanhos
+# 6. Gestão de Rebanhos
 
 - Cadastro de rebanhos com descrição de grupos e subgrupos.
 - Consulta e organização dos rebanhos conforme necessidades específicas.
 
-7. Gerenciamento de Usuários
+# 7. Gerenciamento de Usuários
 
 - Registro de novos usuários com permissões definidas (administrador, operador, etc.).
 - Consulta e edição de informações de usuários.
