@@ -1,26 +1,32 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoAgro.Model
 {
-    [Table("Animal")]
+    // Representa a tabela 'Animal' no banco de dados
+    [Table("Animal")]  // Mapeia a classe para a tabela 'Animal' no banco de dados
     public class AnimalModel
     {
-        [Key] // Indica que esta é a chave primária
-        [Column("CodigoBrinco")]
+        // Código do brinco, identificador único do animal (chave primária)
+        [Key] // Indica que esta propriedade é a chave primária da tabela
+        [Column("CodigoBrinco")]  // Define o nome da coluna correspondente no banco de dados
         public int CodigoBrinco { get; set; }
 
-        [Column("Raca")]
+        // Raça do animal
+        [Column("Raca")]  // Define o nome da coluna correspondente no banco de dados
         public string? Raca { get; set; }
 
-        [Column("Peso")]
-        public double? Peso { get; set; }
+        // Peso do animal
+        [Column("Peso")]  // Define o nome da coluna correspondente no banco de dados
+        public double? Peso { get; set; }  // Peso é opcional, pois alguns registros podem não ter esse dado
 
-        [Column("Sexo")]
+        // Sexo do animal
+        [Column("Sexo")]  // Define o nome da coluna correspondente no banco de dados
         public string? Sexo { get; set; }
 
-        [Column("Idade")]
+        // Idade do animal em anos
+        [Column("Idade")]  // Define o nome da coluna correspondente no banco de dados
         public int Idade { get; set; }
     }
 }
