@@ -20,6 +20,7 @@ namespace GestaoAgro.Model
         public string QuantidadeProduzida { get; set; }
 
         [Column("fk_Animal_CodigoBrinco")]
-        public int CodigoBrinco { get; set; }       
+        public int CodigoBrinco { get; set; }
+        public virtual AnimalModel Animal { get; set; }
     }
 }

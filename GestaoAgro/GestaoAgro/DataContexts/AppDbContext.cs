@@ -15,5 +15,43 @@ namespace GestaoAgro.DataContexts
         public DbSet<RebanhoAlimentacaoModel> RebanhoAlimentacao { get; set; }
         public DbSet<SaudeModel> Saude { get; set; }
         public DbSet<ProducaoModel> Producao { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PastagemModel>()
+                .HasOne(p => p.Animal) // Relacionamento de navegação
+                .WithMany()  // Caso um Animal tenha várias Pastagens
+                .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
+
+            modelBuilder.Entity<RebanhoModel>()
+                .HasOne(p => p.Animal) // Relacionamento de navegação
+                .WithMany()
+                .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
+
+            modelBuilder.Entity<ProducaoModel>()
+                .HasOne(p => p.Animal) // Relacionamento de navegação
+                .WithMany()  
+                .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
+
+            modelBuilder.Entity<SaudeModel>()
+                .HasOne(p => p.Animal) // Relacionamento de navegação
+                .WithMany()
+                .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
+
+            modelBuilder.Entity<RebanhoAlimentacaoModel>()
+                .HasOne(p => p.Rebanho) // Relacionamento de navegação
+                .WithMany()
+                .HasForeignKey(p => p.IdRebanho); // Chave estrangeira
+
+            modelBuilder.Entity<RebanhoAlimentacaoModel>()
+                .HasOne(p => p.Alimentacao) // Relacionamento de navegação
+                .WithMany()
+                .HasForeignKey(p => p.IdAlimentacao); // Chave estrangeira
+
+
+
+        }
     }
 }

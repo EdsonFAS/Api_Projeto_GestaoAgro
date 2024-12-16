@@ -19,12 +19,13 @@ namespace GestaoAgro.Model
         public string Apetite { get; set; }
 
         [Column("Temperatura")]
-        public int Temperatura { get; set; }
+        public double Temperatura { get; set; }
 
         [Column("DataVerificacao")]
         public DateTime DataVerificacao { get; set; }
 
         [Column("fk_Animal_CodigoBrinco")]
         public int CodigoBrinco { get; set; }
+        public virtual AnimalModel Animal { get; set; }
     }
 }

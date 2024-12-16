@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoAgro.Model
@@ -6,7 +7,8 @@ namespace GestaoAgro.Model
     [Table("Rebanho")]
     public class RebanhoModel
     {
-        [Column("Id")]
+        [Key] // Define como chave primária
+        [Column("IdRebanho")]
         public int Id { get; set; }
 
         [Column("Tipo")]
@@ -17,5 +19,6 @@ namespace GestaoAgro.Model
 
         [Column("fk_Animal_CodigoBrinco")]
         public int CodigoBrinco { get; set; }
+        public virtual AnimalModel Animal { get; set; }
     }
 }

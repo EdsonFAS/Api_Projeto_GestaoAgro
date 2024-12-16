@@ -8,7 +8,7 @@ namespace GestaoAgro.Model
     public class AlimentacaoModel
     {
         [Key] // Define como chave primária
-        [Column("Id")]
+        [Column("IdAlimentacao")]
         public int Id { get; set; }
 
         [Column("Fornecedor")]

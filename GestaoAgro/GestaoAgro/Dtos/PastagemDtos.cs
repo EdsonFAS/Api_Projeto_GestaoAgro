@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GestaoAgro.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace GestaoAgro.Dtos
 {
@@ -15,5 +16,9 @@ namespace GestaoAgro.Dtos
 
         [Required]
         public int Periodo { get; set; }
+
+        [Required]
+        public int CodigoBrinco { get; set; }
+        public virtual AnimalModel Animal { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace GestaoAgro.Model
         public int Id { get; set; }
 
         [Column("AreaPastagem")]
-        public double area_de_pastagem { get; set; }
+        public double AreaPastagem { get; set; }
 
         [Column("LocalizacaoPastagem")]
         public string LocalizacaoPastagem { get; set; }
@@ -20,5 +20,6 @@ namespace GestaoAgro.Model
 
         [Column("fk_Animal_CodigoBrinco")]
         public int CodigoBrinco { get; set; }
+        public virtual AnimalModel Animal { get; set; }
     }
 }

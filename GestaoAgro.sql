@@ -44,7 +44,7 @@ CREATE TABLE Pastagem (
 
 -- Tabela Alimentacao
 CREATE TABLE Alimentacao (
-    Id INT AUTO_INCREMENT PRIMARY KEY,
+    IdAlimentacao INT AUTO_INCREMENT PRIMARY KEY,
     Fornecedor VARCHAR(255),
     Nome VARCHAR(100) NOT NULL,
     QuantidadeEstoque DOUBLE NOT NULL,

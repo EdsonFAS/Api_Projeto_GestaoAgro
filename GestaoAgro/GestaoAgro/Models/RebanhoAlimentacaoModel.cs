@@ -8,10 +8,12 @@ namespace GestaoAgro.Model
         [Column("Id")]
         public int Id { get; set; }
 
-        [Column("fk_rebanho_id")]
-        public int Rebanho { get; set; }
+        [Column("fk_Rebanho_IdRebanho")]
+        public int IdRebanho { get; set; }
+        public virtual RebanhoModel Rebanho { get; set; }
 
-        [Column("fk_alimentacao_id")]
-        public int Alimentacao { get; set; }
+        [Column("fk_Alimentacao_IdAlimentacao")]
+        public int IdAlimentacao { get; set; }
+        public virtual AlimentacaoModel Alimentacao { get; set; }
     }
 }
