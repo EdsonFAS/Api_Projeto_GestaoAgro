@@ -34,7 +34,7 @@ CREATE TABLE Rebanho (
 
 -- Tabela Pastagem
 CREATE TABLE Pastagem (
-    IdRebanho INT AUTO_INCREMENT PRIMARY KEY,
+    Id INT AUTO_INCREMENT PRIMARY KEY,
     AreaPastagem DOUBLE NOT NULL,
     LocalizacaoPastagem VARCHAR(255),
     Periodo INT,
