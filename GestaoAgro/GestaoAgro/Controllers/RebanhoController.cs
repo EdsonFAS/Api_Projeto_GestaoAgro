@@ -1,17 +1,17 @@
-﻿using GestaoAgro.DataContexts;
+using GestaoAgro.DataContexts;
 using GestaoAgro.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
 {
-
     [ApiController]
     [Route("Rebanho")]
     public class RebanhoController : ControllerBase
     {
         private readonly AppDbContext _context;
 
+        // Construtor que injeta o contexto do banco de dados
         public RebanhoController(AppDbContext context)
         {
             _context = context;
@@ -23,8 +23,9 @@ namespace GestaoAgro.Controllers
         {
             try
             {
+                // Consulta todos os rebanhos com seus animais associados
                 var listaRebanho = await _context.Rebanho
-                    .Include(p => p.Animal)  // Incluir informações do Animal
+                    .Include(p => p.Animal)
                     .Select(p => new
                     {
                         p.Id,
@@ -32,17 +33,24 @@ namespace GestaoAgro.Controllers
                         p.Destino,
                         Animal = new
                         {
-                            CodigoBrinco = p.Animal.CodigoBrinco, // Acesso correto à propriedade Animal
+                            CodigoBrinco = p.Animal.CodigoBrinco,
                             p.Animal.Raca
                         }
                     })
                     .ToListAsync();
 
+                // Se não houver rebanhos, retorna uma mensagem de erro
+                if (!listaRebanho.Any())
+                {
+                    return NotFound("Nenhum rebanho encontrado.");
+                }
+
                 return Ok(listaRebanho);
             }
             catch (Exception e)
             {
-                return Problem(e.Message);
+                // Captura erros e retorna mensagem de problema
+                return Problem($"Erro ao tentar recuperar a lista de rebanhos: {e.Message}");
             }
         }
 
@@ -52,21 +60,24 @@ namespace GestaoAgro.Controllers
         {
             try
             {
+                // Busca o rebanho pelo ID com os dados do animal
                 var rebanho = await _context.Rebanho
                     .Include(p => p.Animal)
                     .Where(p => p.Id == id)
                     .FirstOrDefaultAsync();
 
+                // Se não encontrado, retorna mensagem de erro
                 if (rebanho == null)
                 {
-                    return NotFound($"Rebanho #{id} não encontrado");
+                    return NotFound($"Rebanho #{id} não encontrado.");
                 }
 
                 return Ok(rebanho);
             }
             catch (Exception e)
             {
-                return Problem(e.Message);
+                // Captura erros e retorna mensagem de problema
+                return Problem($"Erro ao tentar recuperar o rebanho com ID {id}: {e.Message}");
             }
         }
 
@@ -76,21 +87,31 @@ namespace GestaoAgro.Controllers
         {
             try
             {
+                // Verifica se os dados do corpo são válidos
+                if (item == null)
+                {
+                    return BadRequest("Dados inválidos. Certifique-se de enviar os campos corretamente.");
+                }
+
+                // Cria o novo rebanho
                 var rebanho = new RebanhoModel
                 {
                     Tipo = item.Tipo,
                     Destino = item.Destino,
-                    CodigoBrinco = item.CodigoBrinco // Relacionamento com o Animal
+                    CodigoBrinco = item.CodigoBrinco
                 };
 
+                // Adiciona o rebanho ao contexto e salva no banco
                 await _context.Rebanho.AddAsync(rebanho);
                 await _context.SaveChangesAsync();
 
+                // Retorna o rebanho criado com status 201
                 return CreatedAtAction(nameof(GetById), new { id = rebanho.Id }, rebanho);
             }
             catch (Exception e)
             {
-                return Problem(e.Message);
+                // Captura erros e retorna mensagem de problema
+                return Problem($"Erro ao tentar criar o rebanho: {e.Message}");
             }
         }
 
@@ -100,25 +121,36 @@ namespace GestaoAgro.Controllers
         {
             try
             {
-                var rebanho = await _context.Rebanho.FindAsync(id);
-
-                if (rebanho == null)
+                // Verifica se os dados do corpo são válidos
+                if (item == null)
                 {
-                    return NotFound($"Rebanho #{id} não encontrado");
+                    return BadRequest("Dados inválidos. Certifique-se de enviar os campos corretamente.");
                 }
 
+                // Busca o rebanho pelo ID
+                var rebanho = await _context.Rebanho.FindAsync(id);
+
+                // Se não encontrado, retorna mensagem de erro
+                if (rebanho == null)
+                {
+                    return NotFound($"Rebanho #{id} não encontrado.");
+                }
+
+                // Atualiza os dados do rebanho
                 rebanho.Tipo = item.Tipo;
                 rebanho.Destino = item.Destino;
                 rebanho.CodigoBrinco = item.CodigoBrinco;
 
+                // Atualiza no banco de dados
                 _context.Rebanho.Update(rebanho);
                 await _context.SaveChangesAsync();
 
-                return Ok(rebanho);
+                return Ok(rebanho); // Retorna o rebanho atualizado
             }
             catch (Exception e)
             {
-                return Problem(e.Message);
+                // Captura erros e retorna mensagem de problema
+                return Problem($"Erro ao tentar atualizar o rebanho com ID {id}: {e.Message}");
             }
         }
 
@@ -128,23 +160,34 @@ namespace GestaoAgro.Controllers
         {
             try
             {
+                // Busca o rebanho pelo ID
                 var rebanho = await _context.Rebanho.FindAsync(id);
-
                 if (rebanho == null)
                 {
-                    return NotFound($"Rebanho #{id} não encontrado");
+                    return NotFound($"Rebanho #{id} não encontrado.");
                 }
 
+                // Remove registros dependentes na tabela RebanhoAlimentacao
+                var dependentes = _context.RebanhoAlimentacao.Where(ra => ra.IdRebanho == id);
+                _context.RebanhoAlimentacao.RemoveRange(dependentes);
+
+                // Remove o rebanho
                 _context.Rebanho.Remove(rebanho);
                 await _context.SaveChangesAsync();
 
-                return Ok();
+                return Ok($"Rebanho #{id} e seus registros relacionados foram removidos com sucesso.");
+            }
+            catch (DbUpdateException ex)
+            {
+                // Captura exceções de banco de dados e retorna a mensagem de erro
+                var innerExceptionMessage = ex.InnerException?.Message;
+                return Problem($"Erro ao tentar excluir o rebanho com ID {id}: {innerExceptionMessage}");
             }
             catch (Exception e)
             {
-                return Problem(e.Message);
+                // Captura erros gerais e retorna a mensagem de erro
+                return Problem($"Erro ao tentar excluir o rebanho com ID {id}: {e.Message}");
             }
         }
     }
-
 }
