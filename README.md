@@ -8,38 +8,47 @@ API desenvolvida para facilitar a gestão agropecuária, oferecendo ferramentas 
 
 ### 1. Gestão de Animais
 
-- Cadastro de animais com informações detalhadas (nome, raça, idade, peso, etc.).
-- Consulta de animais por critérios como identificação, espécie ou características específicas.
+- 🐄 **Cadastro de Animais**: Informações detalhadas (nome, raça, idade, peso, etc.).
+- 🔍 **Consulta de Animais**: Critérios como identificação, espécie ou características específicas.
 
 ### 2. Gestão de Alimentação
 
-- Registro de planos de alimentação para cada animal ou grupo do rebanho.
-- Consulta e acompanhamento dos históricos de alimentação.
+- 🍽️ **Registro de Planos de Alimentação**: Por animal ou grupo do rebanho.
+- 📊 **Históricos de Alimentação**: Consulta e acompanhamento.
 
 ### 3. Monitoramento de Saúde
 
-- Registro de eventos de saúde (vacinas, exames, tratamentos).
-- Acompanhamento de indicadores de bem-estar animal.
+- 💉 **Registro de Eventos de Saúde**: Vacinas, exames, tratamentos.
+- 🩺 **Indicadores de Bem-Estar Animal**: Acompanhamento.
 
 ### 4. Registro de Produção
 
-- Cadastro de informações sobre a produção (leite, carne, ovos, etc.).
-- Relatórios sobre produtividade por animal ou grupo.
+- 📈 **Cadastro de Produção**: Informações sobre leite, carne, ovos, etc.
+- 📄 **Relatórios de Produtividade**: Por animal ou grupo.
 
 ### 5. Controle de Pastagem
 
-- Gerenciamento de lotes de pasto e rodízio de animais.
-- Monitoramento da disponibilidade e qualidade das pastagens.
+- 🌿 **Gerenciamento de Lotes de Pasto**: Rodízio de animais.
+- 🟢 **Monitoramento de Pastagens**: Disponibilidade e qualidade.
 
 ### 6. Gestão de Rebanhos
 
-- Cadastro de rebanhos com descrição de grupos e subgrupos.
-- Consulta e organização dos rebanhos conforme necessidades específicas.
+- 🐑 **Cadastro de Rebanhos**: Descrição de grupos e subgrupos.
+- 📋 **Organização de Rebanhos**: Consulta conforme necessidades específicas.
 
 ### 7. Gerenciamento de Usuários
 
-- Registro de novos usuários com permissões definidas (administrador, operador, etc.).
-- Consulta e edição de informações de usuários.
+- 👥 **Registro de Usuários**: Novos usuários com permissões definidas (administrador, operador, etc.).
+- 📝 **Consulta e Edição de Usuários**: Informações de usuários.
+
+## Operações CRUD
+
+Para facilitar a gestão, a API inclui as operações CRUD para todas as entidades:
+
+- **GET**: Recupera todos os registros ou um registro específico por ID.
+- **POST**: Adiciona um novo registro.
+- **PUT**: Atualiza um registro existente por ID.
+- **DELETE**: Remove um registro específico por ID.
 
 ## Tecnologias Utilizadas
 
