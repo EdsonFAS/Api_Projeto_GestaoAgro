@@ -6,23 +6,23 @@ namespace GestaoAgro.Dtos
     public class AnimalDtos
     {
         // Código de identificação do brinco do animal
-        [Required(ErrorMessage = "Código de brinco é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Código de brinco é obrigatório")] // Validação de campo obrigatório
         public int CodigoBrinco { get; set; }
 
         // Raça do animal
-        [Required(ErrorMessage = "Raça do animal é obrigatória")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Raça do animal é obrigatória")] // Validação de campo obrigatório
         public string? Raca { get; set; }
 
         // Peso do animal
-        [Required(ErrorMessage = "Peso do animal é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Peso do animal é obrigatório")] // Validação de campo obrigatório
         public double Peso { get; set; }
 
         // Sexo do animal
-        [Required(ErrorMessage = "Sexo do animal é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Sexo do animal é obrigatório")] // Validação de campo obrigatório
         public string? Sexo { get; set; }
 
         // Idade do animal
-        [Required(ErrorMessage = "Idade do animal é obrigatória")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Idade do animal é obrigatória")] // Validação de campo obrigatório
         public int Idade { get; set; }
     }
 }
