@@ -26,38 +26,38 @@ namespace GestaoAgro.DataContexts
 
             // Relacionamento entre Pastagem e Animal
             modelBuilder.Entity<PastagemModel>()
-                .HasOne(p => p.Animal)  // Um Pastagem tem um Animal
-                .WithMany()  // Um Animal pode ter várias Pastagens
+                .HasOne(p => p.Animal) // Um Pastagem tem um Animal
+                .WithMany() // Um Animal pode ter várias Pastagens
                 .HasForeignKey(p => p.CodigoBrinco); // Definindo a chave estrangeira
 
             // Relacionamento entre Rebanho e Animal
             modelBuilder.Entity<RebanhoModel>()
-                .HasOne(p => p.Animal)  // Um Rebanho tem um Animal
-                .WithMany()  // Um Animal pode estar em vários Rebanhos
+                .HasOne(p => p.Animal) // Um Rebanho tem um Animal
+                .WithMany() // Um Animal pode estar em vários Rebanhos
                 .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
 
             // Relacionamento entre Producao e Animal
             modelBuilder.Entity<ProducaoModel>()
-                .HasOne(p => p.Animal)  // Uma Producao pertence a um Animal
-                .WithMany()  // Um Animal pode ter várias Produções
+                .HasOne(p => p.Animal) // Uma Producao pertence a um Animal
+                .WithMany() // Um Animal pode ter várias Produções
                 .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
 
             // Relacionamento entre Saude e Animal
             modelBuilder.Entity<SaudeModel>()
-                .HasOne(p => p.Animal)  // Uma Saude pertence a um Animal
-                .WithMany()  // Um Animal pode ter vários registros de Saúde
+                .HasOne(p => p.Animal) // Uma Saude pertence a um Animal
+                .WithMany() // Um Animal pode ter vários registros de Saúde
                 .HasForeignKey(p => p.CodigoBrinco); // Chave estrangeira
 
             // Relacionamento entre RebanhoAlimentacao e Rebanho
             modelBuilder.Entity<RebanhoAlimentacaoModel>()
-                .HasOne(p => p.Rebanho)  // Um RebanhoAlimentacao pertence a um Rebanho
-                .WithMany()  // Um Rebanho pode ter várias Alimentações
+                .HasOne(p => p.Rebanho) // Um RebanhoAlimentacao pertence a um Rebanho
+                .WithMany() // Um Rebanho pode ter várias Alimentações
                 .HasForeignKey(p => p.IdRebanho); // Chave estrangeira
 
             // Relacionamento entre RebanhoAlimentacao e Alimentacao
             modelBuilder.Entity<RebanhoAlimentacaoModel>()
-                .HasOne(p => p.Alimentacao)  // Um RebanhoAlimentacao pertence a uma Alimentação
-                .WithMany()  // Uma Alimentação pode ser associada a vários Rebanhos
+                .HasOne(p => p.Alimentacao) // Um RebanhoAlimentacao pertence a uma Alimentação
+                .WithMany() // Uma Alimentação pode ser associada a vários Rebanhos
                 .HasForeignKey(p => p.IdAlimentacao); // Chave estrangeira
         }
     }

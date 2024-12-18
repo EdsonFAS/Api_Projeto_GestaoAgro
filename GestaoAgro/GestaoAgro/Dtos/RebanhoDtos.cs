@@ -7,19 +7,19 @@ namespace GestaoAgro.Dtos
     public class RebanhoDtos
     {
         // Identificador único do rebanho
-        [Required(ErrorMessage = "Id do rebanho é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Id do rebanho é obrigatório")] // Validação de campo obrigatório
         public int Id { get; set; }
 
         // Tipo de rebanho (ex: carneiro, vaca leiteira, etc.)
-        [Required(ErrorMessage = "Tipo de rebanho é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Tipo de rebanho é obrigatório")] // Validação de campo obrigatório
         public string Tipo { get; set; }
 
         // Destino do rebanho (ex: venda, abate, engorda, etc.)
-        [Required(ErrorMessage = "Destino do rebanho é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Destino do rebanho é obrigatório")] // Validação de campo obrigatório
         public string Destino { get; set; }
 
         // Código do brinco do animal associado ao rebanho
-        [Required(ErrorMessage = "Código do brinco é obrigatório")]  // Validação de campo obrigatório
+        [Required(ErrorMessage = "Código do brinco é obrigatório")] // Validação de campo obrigatório
         public int CodigoBrinco { get; set; }
 
         // Relacionamento com o modelo Animal (um rebanho pode ter um ou mais animais)

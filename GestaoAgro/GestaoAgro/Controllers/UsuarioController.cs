@@ -5,22 +5,19 @@ using GestaoAgro.Dtos;
 using GestaoAgro.Model;
 
 namespace GestaoAgro.Controllers
-{
-    // Definindo a classe de controle de usuários com a rota base "Usuario"
-    [ApiController]
+{    
+    [ApiController] // Definindo a classe de controle de usuários com a rota base "Usuario"
     [Route("Usuario")]
     public class UsuarioController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        // Construtor para injeção de dependência do contexto do banco de dados
-        public UsuarioController(AppDbContext context)
+        public UsuarioController(AppDbContext context) // Construtor para injeção de dependência do contexto do banco de dados
         {
             _context = context;
         }
-
-        // Método para retornar todos os usuários
-        [HttpGet]
+                
+        [HttpGet] // Método para retornar todos os usuários
         public async Task<IActionResult> GetAll()
         {
             try
