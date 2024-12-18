@@ -17,7 +17,7 @@ namespace GestaoAgro.Controladores
             _context = context; // Injeta o contexto no controlador
         }
 
-        // OBTER todos os pastágenos
+        // OBTER todos as pastagens
         [HttpGet] // Define o método HTTP como GET
         public async Task<IActionResult> GetAll()
         {
