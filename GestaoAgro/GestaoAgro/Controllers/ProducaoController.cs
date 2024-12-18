@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
 {
-    [ApiController]  // Indica que a classe é um controlador de API
-    [Route("Producao")]  // Define a rota base para os métodos da API
+    [ApiController] // Indica que a classe é um controlador de API
+    [Route("Producao")] // Define a rota base para os métodos da API
     public class ProducaoController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -25,7 +25,7 @@ namespace GestaoAgro.Controllers
             try
             {
                 var listaProducao = await _context.Producao
-                    .Include(p => p.Animal)  // Inclui os dados do animal
+                    .Include(p => p.Animal) // Inclui os dados do animal
                     .Select(p => new
                     {
                         p.Id,
@@ -36,11 +36,11 @@ namespace GestaoAgro.Controllers
                     })
                     .ToListAsync();
 
-                return Ok(listaProducao);  // Retorna as produções com status 200 OK
+                return Ok(listaProducao); // Retorna as produções com status 200 OK
             }
             catch (Exception e)
             {
-                return Problem($"Erro ao tentar recuperar as produções: {e.Message}");  // Retorna erro se falhar
+                return Problem($"Erro ao tentar recuperar as produções: {e.Message}"); // Retorna erro se falhar
             }
         }
 
@@ -51,19 +51,19 @@ namespace GestaoAgro.Controllers
             try
             {
                 var producao = await _context.Producao
-                    .Include(p => p.Animal)  // Inclui dados do animal
-                    .FirstOrDefaultAsync(p => p.Id == id);  // Filtra pela produção pelo ID
+                    .Include(p => p.Animal) // Inclui dados do animal
+                    .FirstOrDefaultAsync(p => p.Id == id); // Filtra pela produção pelo ID
 
                 if (producao == null)
                 {
-                    return NotFound($"Producao #{id} não encontrada");  // Retorna erro 404 se não encontrar
+                    return NotFound($"Producao #{id} não encontrada"); // Retorna erro 404 se não encontrar
                 }
 
-                return Ok(producao);  // Retorna a produção com status 200 OK
+                return Ok(producao); // Retorna a produção com status 200 OK
             }
             catch (Exception e)
             {
-                return Problem($"Erro ao tentar recuperar a produção com ID {id}: {e.Message}");  // Retorna erro se falhar
+                return Problem($"Erro ao tentar recuperar a produção com ID {id}: {e.Message}"); // Retorna erro se falhar
             }
         }
 
@@ -75,20 +75,20 @@ namespace GestaoAgro.Controllers
             {
                 var producao = new ProducaoModel
                 {
-                    TipoProducao = item.TipoProducao,  // Define tipo de produção
-                    Data = item.Data,  // Define a data da produção
-                    QuantidadeProduzida = item.QuantidadeProduzida,  // Define a quantidade
-                    CodigoBrinco = item.CodigoBrinco  // Relaciona com o animal pelo código de brinco
+                    TipoProducao = item.TipoProducao, // Define tipo de produção
+                    Data = item.Data, // Define a data da produção
+                    QuantidadeProduzida = item.QuantidadeProduzida, // Define a quantidade
+                    CodigoBrinco = item.CodigoBrinco // Relaciona com o animal pelo código de brinco
                 };
 
                 await _context.Producao.AddAsync(producao);
-                await _context.SaveChangesAsync();  // Salva no banco
+                await _context.SaveChangesAsync(); // Salva no banco
 
-                return CreatedAtAction(nameof(GetById), new { id = producao.Id }, producao);  // Retorna a produção criada com status 201
+                return CreatedAtAction(nameof(GetById), new { id = producao.Id }, producao); // Retorna a produção criada com status 201
             }
             catch (Exception e)
             {
-                return Problem($"Erro ao tentar criar a produção: {e.Message}");  // Retorna erro se falhar
+                return Problem($"Erro ao tentar criar a produção: {e.Message}"); // Retorna erro se falhar
             }
         }
 
@@ -102,7 +102,7 @@ namespace GestaoAgro.Controllers
 
                 if (producao == null)
                 {
-                    return NotFound($"Producao #{id} não encontrada para atualização");  // Retorna erro 404 se não encontrar
+                    return NotFound($"Producao #{id} não encontrada para atualização"); // Retorna erro 404 se não encontrar
                 }
 
                 // Atualiza os dados da produção
@@ -112,9 +112,9 @@ namespace GestaoAgro.Controllers
                 producao.CodigoBrinco = item.CodigoBrinco;
 
                 _context.Producao.Update(producao);
-                await _context.SaveChangesAsync();  // Salva as alterações no banco
+                await _context.SaveChangesAsync(); // Salva as alterações no banco
 
-                return Ok(producao);  // Retorna a produção atualizada com status 200 OK
+                return Ok(producao); // Retorna a produção atualizada com status 200 OK
             }
             catch (Exception e)
             {
