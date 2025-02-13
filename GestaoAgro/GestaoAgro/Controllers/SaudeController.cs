@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controllers
 {
     [ApiController]
-    [Route("Saude")]
+    [Route("saude")]
     public class SaudeController : ControllerBase
     {
         private readonly AppDbContext _context;

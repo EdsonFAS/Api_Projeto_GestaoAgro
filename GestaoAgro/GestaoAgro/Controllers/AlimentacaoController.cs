@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controllers
 {
     [ApiController] // Define a classe como um controlador de API
-    [Route("Alimentacao")] // Define a rota base para acessar este controlador
+    [Route("alimentacao")] // Define a rota base para acessar este controlador
     public class AlimentacaoController : ControllerBase // Herda de ControllerBase para APIs sem views
     {
         private readonly AppDbContext _context; // Injeta o contexto do banco de dados

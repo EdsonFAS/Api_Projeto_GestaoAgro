@@ -7,7 +7,7 @@ using GestaoAgro.Model;
 namespace GestaoAgro.Controllers
 {    
     [ApiController] // Definindo a classe de controle de usuários com a rota base "Usuario"
-    [Route("Usuario")]
+    [Route("usuario")]
     public class UsuarioController : ControllerBase
     {
         private readonly AppDbContext _context;

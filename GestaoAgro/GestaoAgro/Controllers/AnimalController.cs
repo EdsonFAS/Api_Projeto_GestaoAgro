@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controllers
 {    
     [ApiController] // Define a classe como um controlador API, com base no atributo ApiController
-    [Route("Animal")] // Define a rota padrão para os endpoints desta API
+    [Route("animal")] // Define a rota padrão para os endpoints desta API
     public class AnimalController : ControllerBase
     {        
         private readonly AppDbContext _context; // Injeção de dependência do contexto do banco de dados    

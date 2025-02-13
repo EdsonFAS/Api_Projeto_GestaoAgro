@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controladores
 {
     [ApiController] // Define que a classe é um controlador de API
-    [Route("Pastagem")] // Define o caminho da rota para acessar as ações
+    [Route("pastagem")] // Define o caminho da rota para acessar as ações
     public class PastagemController : ControllerBase
     {
         private readonly AppDbContext _context; // Contexto do banco de dados

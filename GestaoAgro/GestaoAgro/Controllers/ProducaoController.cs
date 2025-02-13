@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controllers
 {
     [ApiController] // Indica que a classe é um controlador de API
-    [Route("Producao")] // Define a rota base para os métodos da API
+    [Route("producao")] // Define a rota base para os métodos da API
     public class ProducaoController : ControllerBase
     {
         private readonly AppDbContext _context;

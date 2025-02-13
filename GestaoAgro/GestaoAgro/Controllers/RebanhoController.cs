@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoAgro.Controllers
 {
     [ApiController]
-    [Route("Rebanho")]
+    [Route("rebanho")]
     public class RebanhoController : ControllerBase
     {
         private readonly AppDbContext _context;
