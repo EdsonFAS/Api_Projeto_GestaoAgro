@@ -75,7 +75,7 @@ namespace GestaoAgro.Controllers
 
         // Método para criar um novo usuário
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] UsuarioDto item)
+        public async Task<IActionResult> Post([FromBody] UsuarioDtos item)
         {
             try
             {
@@ -107,7 +107,7 @@ namespace GestaoAgro.Controllers
 
         // Método para atualizar um usuário por ID
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] UsuarioDto item)
+        public async Task<IActionResult> Put(int id, [FromBody] UsuarioDtos item)
         {
             try
             {

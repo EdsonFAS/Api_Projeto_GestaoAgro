@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para o relacionamento entre Rebanho e Alimentação
-    public class RebanhoAlimentacaoDto
+    public class RebanhoAlimentacaoDtos
     {
         // Identificador único para o relacionamento entre Rebanho e Alimentação
         [Required(ErrorMessage = "Id é obrigatório")] // Validação de campo obrigatório

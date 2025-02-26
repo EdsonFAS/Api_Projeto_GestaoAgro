@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para a alimentação
-    public class AlimentacaoDto
+    public class AlimentacaoDtos
     {
         // Propriedade que armazena o fornecedor da alimentação
         [Required(ErrorMessage = "Fornecedor é obrigatório")] // Validação de campo obrigatório

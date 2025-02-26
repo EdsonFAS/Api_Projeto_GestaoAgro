@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para o cadastro de usuário
-    public class UsuarioDto
+    public class UsuarioDtos
     {
         // Nome completo do usuário
         [Required(ErrorMessage = "Nome completo é obrigatório")] // Campo obrigatório

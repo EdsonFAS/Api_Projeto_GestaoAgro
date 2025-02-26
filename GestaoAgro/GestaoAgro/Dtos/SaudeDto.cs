@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para a saúde dos animais
-    public class SaudeDto
+    public class SaudeDtos
     {
         // Identificador único da entrada de saúde do animal
         [Required(ErrorMessage = "Id é obrigatório")] // Validação de campo obrigatório

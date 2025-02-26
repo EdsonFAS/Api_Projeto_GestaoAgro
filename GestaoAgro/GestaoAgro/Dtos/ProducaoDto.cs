@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para a produção de um animal
-    public class ProducaoDto
+    public class ProducaoDtos
     {
         // Identificador único da produção
         [Required(ErrorMessage = "Id é obrigatório")] // Validação de campo obrigatório

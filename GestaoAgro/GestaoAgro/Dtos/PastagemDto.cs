@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para o controle de pastagem
-    public class PastagemDto
+    public class PastagemDtos
     {
         // Identificador único do controle de pastagem
         [Required(ErrorMessage = "Id é obrigatório")] // Validação de campo obrigatório

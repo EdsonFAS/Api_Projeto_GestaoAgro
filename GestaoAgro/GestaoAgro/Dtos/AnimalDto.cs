@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace GestaoAgro.Dtos
 {
     // Classe que representa os dados transferidos para o modelo de Animal
-    public class AnimalDto
+    public class AnimalDtos
     {
         // Código de identificação do brinco do animal
         [Required(ErrorMessage = "Código de brinco é obrigatório")] // Validação de campo obrigatório
