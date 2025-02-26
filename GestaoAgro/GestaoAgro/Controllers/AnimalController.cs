@@ -76,7 +76,7 @@ namespace GestaoAgro.Controllers
 
         // Método para criar um novo animal
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] AnimalDtos item)
+        public async Task<IActionResult> Post([FromBody] AnimalDto item)
         {
             try
             {
@@ -110,7 +110,7 @@ namespace GestaoAgro.Controllers
 
         // Método para atualizar um animal existente
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] AnimalDtos item)
+        public async Task<IActionResult> Put(int id, [FromBody] AnimalDto item)
         {
             try
             {
