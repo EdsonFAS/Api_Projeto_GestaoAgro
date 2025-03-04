@@ -25,7 +25,7 @@ namespace GestaoAgro.Model
 
         // Código do brinco do animal associado a essa pastagem
         [Column("fk_Animal_CodigoBrinco")]  // Define o nome da coluna correspondente no banco de dados
-        public int CodigoBrinco { get; set; }
+        public string CodigoBrinco { get; set; }
 
         // Relacionamento com o modelo 'AnimalModel' através do código de brinco
         public virtual AnimalModel Animal { get; set; }  // Relacionamento de navegação

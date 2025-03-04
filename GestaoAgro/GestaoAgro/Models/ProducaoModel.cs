@@ -26,7 +26,7 @@ namespace GestaoAgro.Model
 
         // Código do brinco do animal associado à produção
         [Column("fk_Animal_CodigoBrinco")]  // Mapeia a chave estrangeira para a coluna 'fk_Animal_CodigoBrinco'
-        public int CodigoBrinco { get; set; }
+        public string CodigoBrinco { get; set; }
 
         // Relacionamento com o modelo 'AnimalModel' através do código de brinco
         public virtual AnimalModel Animal { get; set; }  // Relacionamento de navegação

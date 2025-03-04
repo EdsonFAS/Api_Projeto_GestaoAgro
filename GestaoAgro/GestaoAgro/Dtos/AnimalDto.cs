@@ -7,7 +7,7 @@ namespace GestaoAgro.Dtos
     {
         // Código de identificação do brinco do animal
         [Required(ErrorMessage = "Código de brinco é obrigatório")] // Validação de campo obrigatório
-        public int CodigoBrinco { get; set; }
+        public String CodigoBrinco { get; set; }
 
         // Raça do animal
         [Required(ErrorMessage = "Raça do animal é obrigatória")] // Validação de campo obrigatório

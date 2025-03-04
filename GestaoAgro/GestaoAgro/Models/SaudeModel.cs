@@ -33,7 +33,7 @@ namespace GestaoAgro.Model
 
         // Código do brinco do animal (chave estrangeira)
         [Column("fk_Animal_CodigoBrinco")]  // Mapeia a chave estrangeira para a tabela 'Animal'
-        public int CodigoBrinco { get; set; }
+        public string CodigoBrinco { get; set; }
 
         // Relacionamento de navegação com o modelo 'AnimalModel'
         public virtual AnimalModel Animal { get; set; }  // Relacionamento com o animal associado

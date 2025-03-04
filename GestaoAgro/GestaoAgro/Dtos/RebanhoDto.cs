@@ -20,7 +20,7 @@ namespace GestaoAgro.Dtos
 
         // Código do brinco do animal associado ao rebanho
         [Required(ErrorMessage = "Código do brinco é obrigatório")] // Validação de campo obrigatório
-        public int CodigoBrinco { get; set; }
+        public string CodigoBrinco { get; set; }
 
         // Relacionamento com o modelo Animal (um rebanho pode ter um ou mais animais)
         public virtual AnimalModel Animal { get; set; } // Relacionamento de navegação com AnimalModel

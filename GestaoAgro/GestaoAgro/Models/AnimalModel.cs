@@ -11,7 +11,7 @@ namespace GestaoAgro.Model
         // Código do brinco, identificador único do animal (chave primária)
         [Key] // Indica que esta propriedade é a chave primária da tabela
         [Column("CodigoBrinco")]  // Define o nome da coluna correspondente no banco de dados
-        public int CodigoBrinco { get; set; }
+        public String CodigoBrinco { get; set; }
 
         // Raça do animal
         [Column("Raca")]  // Define o nome da coluna correspondente no banco de dados

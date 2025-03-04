@@ -51,7 +51,7 @@ namespace GestaoAgro.Controllers
 
         // Método para obter um animal pelo ID (CodigoBrinco)
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
             try
             {
@@ -89,6 +89,7 @@ namespace GestaoAgro.Controllers
                 // Cria o novo animal com os dados fornecidos
                 var animal = new AnimalModel
                 {
+                    CodigoBrinco = item.CodigoBrinco,
                     Raca = item.Raca,
                     Peso = item.Peso,
                     Sexo = item.Sexo,

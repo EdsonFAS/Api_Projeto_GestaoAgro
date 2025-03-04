@@ -32,7 +32,7 @@ namespace GestaoAgro.Dtos
 
         // Código do brinco do animal que está sendo verificado
         [Required(ErrorMessage = "Código do brinco é obrigatório")]  // Validação de campo obrigatório
-        public int CodigoBrinco { get; set; }
+        public string CodigoBrinco { get; set; }
 
         // Relacionamento com o modelo Animal (a saúde é associada a um animal específico)
         public virtual AnimalModel Animal { get; set; } // Relacionamento de navegação com AnimalModel
