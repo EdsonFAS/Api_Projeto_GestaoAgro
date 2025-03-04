@@ -17,19 +17,41 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty))
-        };
-    });
+   .AddJwtBearer(options =>
+   {
+       options.RequireHttpsMetadata = false;
+       options.SaveToken = true;
+       options.TokenValidationParameters = new TokenValidationParameters
+       {
+           ValidateIssuer = true,
+           ValidateAudience = true,
+           ValidateLifetime = true,
+           ValidateIssuerSigningKey = true,
+           ValidIssuer = builder.Configuration["Jwt:Issuer"],
+           ValidAudience = builder.Configuration["Jwt:Audience"],
+           IssuerSigningKey = new SymmetricSecurityKey(
+               Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? string.Empty)
+           )
+       };
+
+       // Tratamento de erro personalizado
+       options.Events = new JwtBearerEvents
+       {
+           OnAuthenticationFailed = context =>
+           {
+               context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+               context.Response.ContentType = "application/json";
+               return context.Response.WriteAsync("{\"error\":\"Falha na autenticação. Token inválido ou expirado.\"}");
+           },
+           OnChallenge = context =>
+           {
+               context.HandleResponse(); // Impede a resposta padrão
+               context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+               context.Response.ContentType = "application/json";
+               return context.Response.WriteAsync("{\"error\":\"Acesso negado. Token ausente ou inválido.\"}");
+           }
+       };
+   });
 
 builder.Services.AddAuthorization(options =>
 {
