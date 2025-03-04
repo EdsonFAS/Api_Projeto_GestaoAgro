@@ -1,11 +1,13 @@
 using GestaoAgro.DataContexts;
 using GestaoAgro.Dtos;
 using GestaoAgro.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
 {
+    [Authorize]
     [ApiController] // Define a classe como um controlador de API
     [Route("alimentacao")] // Define a rota base para acessar este controlador
     public class AlimentacaoController : ControllerBase // Herda de ControllerBase para APIs sem views

@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GestaoAgro.Dtos;
 using GestaoAgro.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GestaoAgro.Controllers
-{    
+{
+    [Authorize]
     [ApiController] // Definindo a classe de controle de usuários com a rota base "Usuario"
     [Route("usuario")]
     public class UsuarioController : ControllerBase

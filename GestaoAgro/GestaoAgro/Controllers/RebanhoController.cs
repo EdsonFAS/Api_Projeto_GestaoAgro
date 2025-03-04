@@ -1,10 +1,12 @@
 using GestaoAgro.DataContexts;
 using GestaoAgro.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("rebanho")]
     public class RebanhoController : ControllerBase

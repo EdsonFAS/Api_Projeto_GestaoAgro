@@ -2,11 +2,13 @@
 using System.Security.Claims;
 using System.Text;
 using GestaoAgro.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
 namespace GestaoAgro.Controllers
 {
+    
     [Route("auth")]
     [ApiController]
     public class AuthController : ControllerBase

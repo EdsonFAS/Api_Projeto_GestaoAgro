@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
 {
-    [Authorize(Policy = "UsuarioAutenticado")]
+    [Authorize]
     [ApiController] // Define a classe como um controlador API, com base no atributo ApiController
     [Route("animal")]
     // Define a rota padrão para os endpoints desta API
@@ -53,6 +53,7 @@ namespace GestaoAgro.Controllers
         }
 
         // Método para obter um animal pelo ID (CodigoBrinco)
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
