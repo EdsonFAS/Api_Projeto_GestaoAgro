@@ -1,10 +1,12 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using GestaoAgro.DataContexts;
 using GestaoAgro.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
 {
@@ -14,27 +16,26 @@ namespace GestaoAgro.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly AppDbContext _context; // Injetando o DbContext
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(IConfiguration configuration, AppDbContext context)
         {
             _configuration = configuration;
+            _context = context;
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginDto user)
+        public async Task<IActionResult> Login([FromBody] LoginDto user)
         {
-            var validUsers = new Dictionary<string, string>
-        {
-            { "lhuany", "123456" },
-            { "edson", "123456" },
-            { "joao teixeira", "123456" }
-        };
-            if (validUsers.TryGetValue(user.Username, out var password) && user.Password == password)
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.NomeUsuario == user.NomeUsuario);
+
+            if (usuario == null || usuario.Senha != user.senha)
             {
-                var token = GenerateJwtToken(user.Username);
-                return Ok(new { token });
+                return Unauthorized(new { message = "Usuário ou senha inválidos" });
             }
-            return Unauthorized();
+
+            var token = GenerateJwtToken(usuario.NomeUsuario);
+            return Ok(new { token });
         }
 
         private string GenerateJwtToken(string username)

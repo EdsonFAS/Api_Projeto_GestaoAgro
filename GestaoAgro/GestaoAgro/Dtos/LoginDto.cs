@@ -6,10 +6,11 @@ namespace GestaoAgro.Dtos
     {
         [Required]
         [MinLength(5)]
-        public required string Username { get; set; }
+        public required string NomeUsuario { get; set; }
 
         [Required]
         [MinLength(5)]
-        public required string Password { get; set; }
+        public required string senha { get; set; }
+        
     }
 }
