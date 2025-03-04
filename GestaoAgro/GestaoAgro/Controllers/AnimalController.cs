@@ -1,13 +1,16 @@
 using GestaoAgro.DataContexts;
 using GestaoAgro.Dtos;
 using GestaoAgro.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestaoAgro.Controllers
-{    
+{
+    [Authorize(Policy = "UsuarioAutenticado")]
     [ApiController] // Define a classe como um controlador API, com base no atributo ApiController
-    [Route("animal")] // Define a rota padrão para os endpoints desta API
+    [Route("animal")]
+    // Define a rota padrão para os endpoints desta API
     public class AnimalController : ControllerBase
     {        
         private readonly AppDbContext _context; // Injeção de dependência do contexto do banco de dados    
