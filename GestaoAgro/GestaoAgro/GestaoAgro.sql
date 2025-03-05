@@ -87,8 +87,11 @@ CREATE TABLE Producao (
 -- Dados Tabela Usuario
 INSERT INTO Usuario (NomeCompleto, NomeUsuario, Senha, Email, CPF, DataNascimento, Endereco)
 VALUES
-('João Silva', 'joaosilva', 'senha123', 'joao.silva@gmail.com', '123.456.789-00', '1990-01-15', 'Rua A, 123'),
-('Maria Oliveira', 'mariaoliveira', 'senha456', 'maria.oliveira@gmail.com', '987.654.321-00', '1985-05-20', 'Avenida B, 456');
+('Carlos Almeida', 'carlosalmeida', 'senha345', 'carlos.almeida@gmail.com', '456.789.012-33', '1988-08-15', 'Rua E, 202'),
+('Maria Oliveira', 'mariaoliveira', 'senha456', 'maria.oliveira@gmail.com', '987.654.321-00', '1985-05-20', 'Avenida B, 456'),
+('João Teixeira', 'joaoteixeira', 'senha123', 'joao.teixeira@gmail.com', '123.456.789-00', '1990-01-15', 'Rua A, 123'),
+('Edson Fernando', 'edsonfernando', 'senha789', 'edson.fernando@gmail.com', '234.567.890-11', '1992-03-10', 'Rua C, 789'),
+('Lhuany Motta', 'lhuanymotta', 'senha012', 'lhuany.motta@gmail.com', '345.678.901-22', '1994-07-25', 'Avenida D, 101');
 
 -- Dados Tabela Animal
 INSERT INTO animal (CodigoBrinco, Raca, Peso, Sexo, Idade) VALUES
