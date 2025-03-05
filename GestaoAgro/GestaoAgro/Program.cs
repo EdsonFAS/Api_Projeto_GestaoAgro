@@ -59,6 +59,11 @@ builder.Services.AddAuthorization(options =>
         policy.RequireAuthenticatedUser());
 });
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations(); // Ativa suporte às anotações
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {

@@ -27,7 +27,7 @@ namespace GestaoAgro.Controllers
             {
                 // Consulta todos os rebanhos com seus animais associados
                 var listaRebanho = await _context.Rebanho
-                    .Include(p => p.Animal)
+            
                     .Select(p => new
                     {
                         p.Id,
@@ -64,7 +64,7 @@ namespace GestaoAgro.Controllers
             {
                 // Busca o rebanho pelo ID com os dados do animal
                 var rebanho = await _context.Rebanho
-                    .Include(p => p.Animal)
+              
                     .Where(p => p.Id == id)
                     .FirstOrDefaultAsync();
 

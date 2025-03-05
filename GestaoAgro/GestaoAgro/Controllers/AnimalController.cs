@@ -114,18 +114,18 @@ namespace GestaoAgro.Controllers
         }
 
         // Método para atualizar um animal existente
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] AnimalDtos item)
+        [HttpPut("{CondigoBrinco}")]
+        public async Task<IActionResult> Put(string CondigoBrinco, [FromBody] AnimalDtos item)
         {
             try
             {
                 // Encontra o animal pelo código do brinco (ID)
-                var animal = await _context.Animal.FindAsync(id);
+                var animal = await _context.Animal.FindAsync(CondigoBrinco);
 
                 // Retorna erro se o animal não for encontrado
                 if (animal == null)
                 {
-                    return NotFound($"Animal #{id} não encontrado.");
+                    return NotFound($"Animal #{CondigoBrinco} não encontrado.");
                 }
 
                 // Atualiza as propriedades do animal
@@ -142,7 +142,7 @@ namespace GestaoAgro.Controllers
             }
             catch (Exception e)
             {
-                return Problem($"Erro ao tentar atualizar o animal #{id}: {e.Message}"); // Retorna erro em caso de falha
+                return Problem($"Erro ao tentar atualizar o animal #{CondigoBrinco}: {e.Message}"); // Retorna erro em caso de falha
             }
         }
 

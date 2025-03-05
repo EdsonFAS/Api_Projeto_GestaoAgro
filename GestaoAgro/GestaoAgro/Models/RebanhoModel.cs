@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,7 +15,8 @@ namespace GestaoAgro.Model
         public int Id { get; set; }
 
         // Tipo do rebanho (ex: gado de corte, gado leiteiro, etc.)
-        [Column("Tipo")]  // Mapeia a propriedade 'Tipo' para a coluna 'Tipo' no banco de dados
+        [Column("Tipo")]
+        [SwaggerSchema(Description = "Tipo do rebanho")]// Mapeia a propriedade 'Tipo' para a coluna 'Tipo' no banco de dados
         public string Tipo { get; set; }
 
         // Destino do rebanho (ex: abate, reprodução, venda, etc.)
